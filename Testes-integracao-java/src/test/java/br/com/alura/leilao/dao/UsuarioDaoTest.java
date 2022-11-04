@@ -45,6 +45,14 @@ class UsuarioDaoTest {
 		Assert.assertThrows(NoResultException.class, () -> this.dao.buscarPorUsername("beltrano"));
 	}
 
+	//Método para apagar um usuario do banco de dados
+	@Test
+	void deveriaRemoverUmUsuario(){
+		Usuario usuario = criarUsuario();
+		dao.deletar(usuario);
+		Assert.assertThrows(NoResultException.class, () -> this.dao.buscarPorUsername(usuario.getNome()));
+	}
+
 	//Método para criar objeto usuario, e retorna o objeto já salvo do banco de dado.
 		private Usuario criarUsuario() {
 		Usuario usuario = new Usuario("fulano", "fulano@email.com", "12345678");
