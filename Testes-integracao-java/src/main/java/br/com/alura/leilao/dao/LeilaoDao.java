@@ -26,7 +26,6 @@ public class LeilaoDao {
 	}
 
 	public Leilao buscarPorId(Long id) {
-
 		return em.find(Leilao.class, id);
 	}
 
